@@ -6,12 +6,15 @@
     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 </head>
-<body ng-app="routerExample">
+<body ng-app="fakeGmail">
 
 <app-root></app-root>
 
 <script src="../node_modules/angular/angular.js"></script>
 <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="services/MailService/MailService.js"></script>
+<script src="services/UserService/UserService.js"></script>
 
 <script src="components/login/login.js"></script>
 <script src="components/user/user-card/user-card.js"></script>
@@ -19,77 +22,10 @@
 <script src="components/mail/mail-box/mail-box.js"></script>
 <script src="components/user/avatar/avatar.js"></script>
 <script src="components/user/user-list/user-list.js"></script>
-<script src="services/MailService/MailService.js"></script>
-<script src="services/UserService/UserService.js"></script>
+<script src="components/root/app-root.js"></script>
+<script src="components/home/home.js"></script>
 
-<script>
-    'use strict';
-    const app = angular.module('routerExample', ['ui.router']);
+<script src="main.js"></script>
 
-    app.config(($stateProvider) => {
-        $stateProvider.state({
-            name: 'home',
-            url: '/',
-            template: '<home></home>',
-        });
-
-        $stateProvider.state({
-            name: 'userList',
-            url: '/users',
-            template: '<user-list></user-list>',
-            controllerAs: '$ctrl'
-        });
-
-        $stateProvider.state({
-            name: 'mailList',
-            url: '/mail-list',
-            template: '<mail-box></mail-box>',
-            controllerAs: '$ctrl'
-        });
-
-        $stateProvider.state({
-            name: 'user',
-            url: '/users/:userId',
-            template: '<div class="warning">User details: {{$ctrl.userId}}</div>',
-            controller: function ($stateParams) {
-                this.userId = $stateParams.userId;
-            },
-            controllerAs: '$ctrl'
-        });
-
-        $stateProvider.state({
-            name: 'login',
-            url: '/login',
-            template: '<login></login>',
-            controllerAs: '$ctrl'
-        });
-    });
-
-    app.service("userService", UserService);
-
-    app.service("mailService", MailService);
-
-    app.component('appRoot', {
-        templateUrl: "components/root/app-root.html"
-    });
-
-    app.component('home', {
-        restrict: 'E',
-        template: "<div>HOME state</div>"
-    });
-
-    app.component('userList', userList);
-    app.component('userCard', userCard);
-    app.component('login', login);
-    app.component('avatar', avatar);
-    app.component('mailBox', mailBox);
-    app.component('mailLetter', mailLetter);
-
-
-    function generateTimeout(handler) {
-        let randomInterval = Math.floor(Math.random() * (8 - 3)) + 3;
-        return setTimeout(handler, randomInterval * 1000);
-    }
-</script>
 </body>
 </html>
