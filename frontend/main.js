@@ -1,4 +1,18 @@
 'use strict';
+import AuthorizationService from './services/AuthorizationService/AuthorizationService';
+import MailService from './services/MailService/MailService';
+import UserService from './services/UserService/UserService';
+
+import appRoot from './components/root/app-root';
+import home from './components/home/home';
+import userList from './components/user/user-list/user-list';
+import userCard from './components/user/user-card/user-card';
+import login from './components/login/login';
+import avatar from './components/user/avatar/avatar';
+import mailBox from './components/mail/mail-box/mail-box';
+import mailLetter from './components/mail/mail-letter/mail-letter';
+
+
 const app = angular.module('fakeGmail', ['ui.router']);
 
 app.config(($stateProvider) => {
@@ -52,9 +66,3 @@ app.component('login', login);
 app.component('avatar', avatar);
 app.component('mailBox', mailBox);
 app.component('mailLetter', mailLetter);
-
-
-function generateTimeout(handler) {
-    let randomInterval = Math.floor(Math.random() * (8 - 3)) + 3;
-    return setTimeout(handler, randomInterval * 1000);
-}
