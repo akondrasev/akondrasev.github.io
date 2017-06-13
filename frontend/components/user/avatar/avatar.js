@@ -5,3 +5,5 @@ const avatar = {
     },
     templateUrl: 'components/user/avatar/avatar.html'
 };
+
+export default avatar;

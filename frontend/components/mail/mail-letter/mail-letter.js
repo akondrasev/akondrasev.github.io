@@ -5,3 +5,5 @@ const mailLetter = {
     },
     templateUrl: 'components/mail/mail-letter/mail-letter.html'
 };
+
+export default mailLetter;

@@ -1,4 +1,3 @@
-'use strict';
 import AuthorizationService from './services/AuthorizationService/AuthorizationService';
 import MailService from './services/MailService/MailService';
 import UserService from './services/UserService/UserService';

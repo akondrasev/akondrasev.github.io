@@ -3,10 +3,18 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
+    // devtool: 'source-map',
     entry: {
         app: ['./frontend/main.js'],
         vendor: ['angular', 'angular-ui-router']
+    },
+    module: {
+        rules: [
+            { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loaders: ['ng-annotate-loader', 'babel-loader'] },
+            { test: /\.html$/, loader: 'raw-loader' },
+            { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+        ]
     },
     output: {
         filename: '[name].bundle.js',

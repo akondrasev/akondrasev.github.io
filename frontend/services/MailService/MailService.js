@@ -17,3 +17,5 @@ const MailService = function ($http) {
         return $http.delete('http://test-api.javascript.ru/v1/anton.kondrasev/letters', id);
     };
 };
+
+export default MailService;

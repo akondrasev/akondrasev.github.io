@@ -41,3 +41,5 @@ const mailBox = {
 //            this.timer = generateTimeout(this.addLetter);
     }
 };
+
+export default mailBox;

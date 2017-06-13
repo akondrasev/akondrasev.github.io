@@ -9,3 +9,5 @@ const userCard = {
         this.onClick = () => self.selected = !self.selected;
     }
 };
+
+export default userCard;

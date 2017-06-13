@@ -1,3 +1,7 @@
+import template from './app-root.html'
+
 const appRoot = {
-    templateUrl: "components/root/app-root.html"
+    template
 };
+
+export default appRoot;

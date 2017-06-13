@@ -3,3 +3,5 @@ const UserService = function ($http) {
         return $http.get("https://learn.javascript.ru/courses/groups/api/participants?key=uczue3");
     }
 };
+
+export default UserService;
