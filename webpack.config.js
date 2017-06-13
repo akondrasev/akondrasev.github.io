@@ -6,11 +6,11 @@ module.exports = {
     // devtool: 'source-map',
     entry: {
         app: ['./frontend/main.js'],
-        vendor: ['angular', 'angular-ui-router']
+        vendor: ['angular', 'angular-ui-router', 'jquery', 'bootstrap']
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loaders: ['ng-annotate-loader', 'babel-loader'] },
+            { test: /\.js$/, exclude: [/frontend\/lib/, /node_modules/] },//TODO ng-annotate-loader error
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
             { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
