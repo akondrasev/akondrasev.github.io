@@ -35,12 +35,7 @@ const mailBox = {
             }).then((response) => {
                 this.letters = response;
             });
-
-            clearTimeout(this.timer);
-            this.timer = generateTimeout(this.addLetter);
         };
-
-//            this.timer = generateTimeout(this.addLetter);
     }
 };
 
