@@ -33,7 +33,7 @@ const mailBox = {
             }).then((response) => {
                 return mailService.getLetters();
             }).then((response) => {
-                this.letters = response.data;
+                this.letters = response;
             });
 
             clearTimeout(this.timer);
