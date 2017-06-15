@@ -11,8 +11,8 @@ const mailBox = {
 //            });
 
         mailService.getLetters().then((response) => {
-            console.log("letters: ", response.data);
-            this.letters = response.data;
+            console.log("letters: ", response);
+            this.letters = response;
         });
 
         this.deleteLetter = (letter) => {

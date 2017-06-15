@@ -5,7 +5,7 @@ const userList = {
     template,
     controller: function (userService) {
         userService.getUsers().then((response) => {
-            this.users = response.data;
+            this.users = response;
         })
     }
 };

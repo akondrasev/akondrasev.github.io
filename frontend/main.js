@@ -1,6 +1,7 @@
 import AuthorizationService from './services/AuthorizationService/AuthorizationService';
 import MailService from './services/MailService/MailService';
 import UserService from './services/UserService/UserService';
+import ResponseFormatInterceptor from './services/ReponseFormatInterceptor/ResponseFormatInterceptor';
 
 import appRoot from './components/root/app-root';
 import home from './components/home/home';
@@ -16,7 +17,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 const app = angular.module('fakeGmail', ['ui.router']);
 
-app.config(($stateProvider) => {
+app.config(($stateProvider, $httpProvider) => {
+
+    $httpProvider.interceptors.push('responseFormatInterceptor');
+
     $stateProvider.state({
         name: 'home',
         url: '/',
@@ -58,6 +62,7 @@ app.config(($stateProvider) => {
 app.service("authorizationService", AuthorizationService);
 app.service("userService", UserService);
 app.service("mailService", MailService);
+app.service("responseFormatInterceptor", ResponseFormatInterceptor);
 
 app.component('appRoot', appRoot);
 app.component('home', home);
