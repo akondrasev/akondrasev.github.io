@@ -1,6 +1,8 @@
+import template from './login.html';
+
 const login = {
     restrict: 'E',
-    templateUrl: "components/login/login.html",
+    template,
     controller: function () {
 
     }

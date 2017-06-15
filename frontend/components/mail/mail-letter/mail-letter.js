@@ -1,9 +1,11 @@
+import template from './mail-letter.html';
+
 const mailLetter = {
     bindings: {
         letter: '<',
         onDeleteClicked: "&"
     },
-    templateUrl: 'components/mail/mail-letter/mail-letter.html'
+    template
 };
 
 export default mailLetter;

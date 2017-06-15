@@ -1,8 +1,10 @@
+import template from './mail-box.html';
+
 const mailBox = {
     bindings: {
         display: '@'
     },
-    templateUrl: 'components/mail/mail-box/mail-box.html',
+    template,
     controller: function (mailService) {
 //            mailService.createMailBox("default").then((response) => {
 //                console.log(response)

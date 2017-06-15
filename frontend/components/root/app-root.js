@@ -1,4 +1,4 @@
-import template from './app-root.html'
+import template from './app-root.html';
 
 const appRoot = {
     template

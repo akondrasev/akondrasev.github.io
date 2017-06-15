@@ -3,10 +3,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    // devtool: 'source-map',
+    devtool: 'source-map',
     entry: {
         app: ['./frontend/main.js'],
-        vendor: ['angular', 'angular-ui-router', 'jquery', 'bootstrap']
+        vendor: ['angular', 'angular-ui-router']
     },
     module: {
         rules: [

@@ -1,6 +1,8 @@
+import template from './user-list.html';
+
 const userList = {
     restrict: 'E',
-    templateUrl: 'components/user/user-list/user-list.html',
+    template,
     controller: function (userService) {
         userService.getUsers().then((response) => {
             this.users = response.data;

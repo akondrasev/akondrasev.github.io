@@ -1,9 +1,11 @@
+import template from './avatar.html';
+
 const avatar = {
     restrict: 'E',
     bindings: {
         img: '<'
     },
-    templateUrl: 'components/user/avatar/avatar.html'
+    template
 };
 
 export default avatar;
