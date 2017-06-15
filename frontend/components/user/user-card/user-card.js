@@ -1,4 +1,5 @@
 import template from './user-card.html';
+import './user-card.css';
 
 const userCard = {
     restrict: 'E',
