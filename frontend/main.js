@@ -12,6 +12,7 @@ import mailBox from './components/mail/mail-box/mail-box';
 import mailLetter from './components/mail/mail-letter/mail-letter';
 
 import './main.css';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const app = angular.module('fakeGmail', ['ui.router']);
 

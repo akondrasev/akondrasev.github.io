@@ -6,14 +6,21 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         app: ['./frontend/main.js'],
-        vendor: ['angular', 'angular-ui-router']
+        vendor: ['angular', 'angular-ui-router', 'bootstrap']
     },
     module: {
         rules: [
             { test: /\.js$/, exclude: [/frontend\/lib/, /node_modules/] },//TODO ng-annotate-loader error
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }
         ]
     },
     output: {
@@ -29,6 +36,11 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
 
-        new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"})
+        new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"}),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
     ]
 };
