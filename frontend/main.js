@@ -1,7 +1,7 @@
 import AuthorizationService from './services/AuthorizationService/AuthorizationService';
 import MailService from './services/MailService/MailService';
 import UserService from './services/UserService/UserService';
-import ResponseFormatInterceptor from './services/ReponseFormatInterceptor/ResponseFormatInterceptor';
+import ResponseFormatInterceptor from './interceptors/ResponseFormatInterceptor';
 
 import appRoot from './components/root/app-root';
 import home from './components/home/home';
