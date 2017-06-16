@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/karma start",
-    "start": "node_modules/.bin/webpack --config webpack.config.js",
+    "build": "node_modules/.bin/webpack --config webpack.config.js",
     "server": "node_modules/.bin/webpack-dev-server --content-base dist/"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "babel-loader": "^7.0.0",
     "bootstrap": "^3.3.7",
     "bootstrap-tlnd-theme": "^0.5.0",
+    "bootswatch": "^3.3.7",
     "css-loader": "^0.28.4",
     "font-awesome": "^4.7.0",
     "html-webpack-plugin": "^2.28.0",
@@ -51,6 +52,8 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "mocha": "^3.4.2",
     "url-loader": "^0.5.9",
     "webpack-dev-server": "^2.4.5"

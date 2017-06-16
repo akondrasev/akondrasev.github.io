@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         app: ['./frontend/app.js'],
-        vendor: ['angular', 'angular-ui-router', 'bootstrap', 'bootstrap/dist/css/bootstrap.css']
+        vendor: ["./frontend/lib/vendor.js"]
     },
     module: {
         rules: [
@@ -14,6 +14,7 @@ module.exports = {
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
             { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+            { test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader'] },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
                 loader: 'url-loader',
