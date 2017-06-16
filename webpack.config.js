@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         app: ['./frontend/app.js'],
-        vendor: ['angular', 'angular-ui-router', 'bootstrap']
+        vendor: ['angular', 'angular-ui-router', 'bootstrap', 'bootstrap/dist/css/bootstrap.css']
     },
     module: {
         rules: [
@@ -35,6 +35,11 @@ module.exports = {
             hash: true
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: ['$', 'jQuery', 'angular']
+            }
+        }),
 
         new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"}),
         new webpack.ProvidePlugin({
