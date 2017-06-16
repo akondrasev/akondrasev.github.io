@@ -3,6 +3,8 @@ import uiRouter from 'angular-ui-router';
 import Components from './components/components';
 import AppComponent from './app.component';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 angular.module('app', [
     uiRouter,
     Components
