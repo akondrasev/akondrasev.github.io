@@ -1,8 +1,8 @@
-import template from './navbar.html';
 import angular from 'angular';
+import navbar from './navbar.component';
 
-const navbar = {
-    template
-};
+let navbarComponent = angular.module('navbar', []);
 
-angular.component('navbar', navbar);
+navbarComponent.component('navbar', navbar);
+
+export default navbarComponent.name;
