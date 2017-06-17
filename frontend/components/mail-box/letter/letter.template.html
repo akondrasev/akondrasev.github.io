@@ -1,0 +1,4 @@
+<div class="letter" ng-click="$ctrl.select($ctrl.letter); $ctrl.selected = !$ctrl.selected;">
+    <input ng-model="$ctrl.selected" ng-change="$ctrl.select($ctrl.letter);" type="checkbox"/>
+    <span>{{$ctrl.letter.subject}}</span>
+</div>

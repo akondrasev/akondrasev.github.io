@@ -1,0 +1,10 @@
+.letter input[type='checkbox'] {
+    margin-top: 5px;
+}
+
+.letter {
+    padding: 5px;
+    border: 1px solid rgba(0,0,0, 0.2);
+    margin-top: 2px;
+    max-width: 500px;
+}

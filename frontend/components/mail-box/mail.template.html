@@ -1,11 +1,7 @@
 <div class="mail-box">
-    <div class="letter">
-        Subject #1
+    <div class="box-menu">
+        <a ng-click="$ctrl.deleteLetters()"><i class="glyphicon glyphicon-trash"></i></a>
     </div>
-    <div class="letter">
-        Subject #1
-    </div>
-    <div class="letter">
-        Subject #1
-    </div>
+
+    <letter ng-repeat="letter in $ctrl.letters" letter="letter" select="$ctrl.selectLetter(letter);"></letter>
 </div>
