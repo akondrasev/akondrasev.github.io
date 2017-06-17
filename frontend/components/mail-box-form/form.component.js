@@ -3,13 +3,18 @@ import './form.css';
 
 const mailBoxComponent = {
     template,
-    controller: function () {
+    controller: function ($state) {
+        "ngInject";
+
         this.$onDestroy = () => {
             $('.modal-backdrop').remove();
         };
 
         this.$onInit = () => {
             $('#new-message-modal').modal();
+            $('#new-message-modal').on("hidden.bs.modal", () => {
+                $state.go("home");
+            });
         };
     }
 };
