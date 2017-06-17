@@ -13,6 +13,10 @@ homeModule.config(($stateProvider, $urlRouterProvider) => {
 
     $stateProvider
         .state('home', {
+            data: {
+                title: "Home",
+                roles: ["user"]
+            },
             url: '/',
             component: 'home'
         });
