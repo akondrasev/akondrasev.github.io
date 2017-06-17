@@ -6,10 +6,6 @@ const mailBoxComponent = {
     controller: function ($state) {
         "ngInject";
 
-        this.$onDestroy = () => {
-            $('.modal-backdrop').remove();
-        };
-
         this.$onInit = () => {
             $('#new-message-modal').modal();
             $('#new-message-modal').on("hidden.bs.modal", () => {
