@@ -1,3 +1,8 @@
+.mail-box-list {
+    width: 125px;
+    margin: 0 auto;
+}
+
 .mail-box-list ul {
     list-style: none;
     padding: 0;
@@ -5,4 +10,8 @@
 
 .mail-box-list ul li a.active {
     text-decoration: underline;
+}
+
+#new-mail-box-btn {
+
 }
