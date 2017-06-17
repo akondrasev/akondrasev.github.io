@@ -9,10 +9,22 @@ let homeModule = angular.module('home', [
 homeModule.config(($stateProvider, $urlRouterProvider) => {
     "ngInject";
 
+    $urlRouterProvider.otherwise('/');
+
     $stateProvider
         .state('home', {
+            url: "/:boxId",
             component: 'home',
-            abstract: true
+            resolve: {
+                mailBoxes: function (mailService) {
+                    "ngInject";
+                    return mailService.getMailBoxes();
+                },
+                letters: function (mailService) {
+                    "ngInject";
+                    return mailService.getLetters();
+                }
+            }
         });
 });
 

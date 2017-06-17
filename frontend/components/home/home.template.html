@@ -6,12 +6,12 @@
                     <button id="new-message-btn" class="btn btn-success">New Message</button>
                 </div>
 
-                <mail-box-list></mail-box-list>
+                <mail-box-list mail-boxes="$ctrl.mailBoxes">Loading...</mail-box-list>
             </div>
         </div>
 
         <div class="col-lg-9 col-sm-12 col-md-8 text-left">
-            <ui-view></ui-view>
+            <mail-box box-id="{{$ctrl.boxId}}" letters="$ctrl.letters">Loading...</mail-box>
         </div>
     </div>
 </div>

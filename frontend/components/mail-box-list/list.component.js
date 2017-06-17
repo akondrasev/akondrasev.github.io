@@ -3,14 +3,7 @@ import './list.css';
 
 const component = {
     bindings:{
-        addBox: "&"
-    },
-    controller: function (mailService) {
-        "ngInject";
-
-        mailService.getMailBoxes().then((response) => {
-            this.mailBoxes = response;
-        });
+        mailBoxes: "<"
     },
     template
 };

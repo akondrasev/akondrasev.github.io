@@ -1,6 +1,6 @@
 <div class="mail-box-list">
     <div class="list-group">
-        <a ng-repeat="box in $ctrl.mailBoxes" class="list-group-item active">
+        <a ui-sref="home({boxId: box._id})" ui-sref-active="active" ng-repeat="box in $ctrl.mailBoxes" class="list-group-item">
             <span class="badge">1</span>
             {{box.title}}
         </a>
