@@ -15,7 +15,7 @@ function controller(mailService) {
             to: "test@mail.ru",
             subject: "test letter",
             title: "title",
-            body: "content"
+            body: "sddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
         }).then(mailService.getLetters).then((response) => {
             this.letters = response;
         });
