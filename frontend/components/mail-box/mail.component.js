@@ -10,15 +10,15 @@ function controller(mailService) {
     this.$onInit = () => {
         this.letters = filterLettersByBoxId(this.boxId, this.letters);
 
-        // mailService.createLetter({
-        //     mailbox: this.boxId,
-        //     to: "test@mail.ru",
-        //     subject: "test letter",
-        //     title: "title",
-        //     body: "content"
-        // }).then(mailService.getLetters).then((response) => {
-        //     this.letters = response;
-        // });
+        mailService.createLetter({
+            mailbox: this.boxId,
+            to: "test@mail.ru",
+            subject: "test letter",
+            title: "title",
+            body: "content"
+        }).then(mailService.getLetters).then((response) => {
+            this.letters = response;
+        });
     };
 
     this.selectLetter = (letter) => {
@@ -29,6 +29,17 @@ function controller(mailService) {
             this.selected.push(letter);
         }
     };
+
+    this.deleteLetters = () => {
+        if (this.selected.length === 0) return;
+
+        mailService.deleteLetters(this.selected.map((letter) => letter._id))
+            .then(mailService.getLetters)
+            .then((response) => {
+                this.letters = response;
+                this.selected = [];
+            });
+    }
 }
 
 function filterLettersByBoxId(id, letters) {

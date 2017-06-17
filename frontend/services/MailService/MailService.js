@@ -1,7 +1,7 @@
 import angular from 'angular';
 import constants from '../../lib/constants';
 
-const MailService = function ($http) {
+const MailService = function ($http, $q) {
     "ngInject";
 
     const lettersUrl = `${constants.baseApiUrl}/letters`;
@@ -26,7 +26,16 @@ const MailService = function ($http) {
     };
 
     this.deleteLetter = (id) => {
-        return $http.delete(lettersUrl, id);
+        return $http.delete(`${lettersUrl}/${id}`);
+    };
+
+    this.deleteLetters = (ids) => {
+        let promises = [];
+        ids.forEach((id) => {
+            promises.push(this.deleteLetter(id));
+        });
+
+        return $q.all(promises);
     };
 };
 
