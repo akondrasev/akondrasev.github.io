@@ -9,16 +9,10 @@ let homeModule = angular.module('home', [
 homeModule.config(($stateProvider, $urlRouterProvider) => {
     "ngInject";
 
-    $urlRouterProvider.otherwise('/');
-
     $stateProvider
         .state('home', {
-            data: {
-                title: "Home",
-                roles: ["user"]
-            },
-            url: '/',
-            component: 'home'
+            component: 'home',
+            abstract: true
         });
 });
 

@@ -36,11 +36,11 @@ module.exports = {
             hash: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                except: ['$', 'jQuery', 'angular']
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     mangle: {
+        //         except: ['$', 'jQuery', 'angular']
+        //     }
+        // }),
 
         new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"}),
         new webpack.ProvidePlugin({
