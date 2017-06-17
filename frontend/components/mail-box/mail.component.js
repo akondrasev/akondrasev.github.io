@@ -10,7 +10,7 @@ function controller(mailService) {
     this.$onInit = () => {
         this.letters = filterLettersByBoxId(this.boxId, this.letters);
 
-        mailService.createLetter({
+        if (this.boxId) mailService.createLetter({
             mailbox: this.boxId,
             to: "test@mail.ru",
             subject: "test letter",
