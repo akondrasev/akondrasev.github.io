@@ -1,21 +1,32 @@
+import angular from 'angular';
+import constants from '../../lib/constants'
+
 const MailService = function ($http) {
+    "ngInject";
+
+    const lettersUrl = `${constants.baseApiUrl}/letters`;
+
     this.getLetters = () => {
-        return $http.get("http://test-api.javascript.ru/v1/anton.kondrasev/letters");
+        return $http.get(lettersUrl);
     };
 
     this.createLetter = (data) => {
-        return $http.post("http://test-api.javascript.ru/v1/anton.kondrasev/letters", data);
+        return $http.post(lettersUrl, data);
     };
 
     this.createMailBox = (title) => {
-        return $http.post('http://test-api.javascript.ru/v1/anton.kondrasev/mailboxes', {
+        return $http.post(`${constants.baseApiUrl}/mailboxes`, {
             title: title
         });
     };
 
     this.deleteLetter = (id) => {
-        return $http.delete('http://test-api.javascript.ru/v1/anton.kondrasev/letters', id);
+        return $http.delete(lettersUrl, id);
     };
 };
 
-export default MailService;
+const module = angular
+    .module("mailService", [])
+    .service('mailService', MailService);
+
+export default module.name;
