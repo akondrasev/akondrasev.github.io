@@ -1,10 +1,11 @@
 import angular from 'angular';
-import constants from '../../lib/constants'
+import constants from '../../lib/constants';
 
 const MailService = function ($http) {
     "ngInject";
 
     const lettersUrl = `${constants.baseApiUrl}/letters`;
+    const mailBoxUrl = `${constants.baseApiUrl}/mailboxes`;
 
     this.getLetters = () => {
         return $http.get(lettersUrl);
@@ -15,9 +16,13 @@ const MailService = function ($http) {
     };
 
     this.createMailBox = (title) => {
-        return $http.post(`${constants.baseApiUrl}/mailboxes`, {
+        return $http.post(mailBoxUrl, {
             title: title
         });
+    };
+
+    this.getMailBoxes = (title) => {
+        return $http.get(mailBoxUrl);
     };
 
     this.deleteLetter = (id) => {

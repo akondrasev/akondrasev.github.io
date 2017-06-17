@@ -12,6 +12,10 @@
     text-decoration: underline;
 }
 
+.mail-box-list a {
+    cursor: pointer;
+}
+
 #new-mail-box-btn {
 
 }

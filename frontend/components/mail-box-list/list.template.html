@@ -1,11 +1,11 @@
 <div class="mail-box-list">
     <div class="list-group">
-        <a class="list-group-item active">
+        <a ng-repeat="box in $ctrl.mailBoxes" class="list-group-item active">
             <span class="badge">1</span>
-            Inbox
+            {{box.title}}
         </a>
 
-        <a id="new-mail-box-btn" class="list-group-item list-group-item-success">New mailbox</a>
+        <a id="new-mail-box-btn" class="list-group-item list-group-item-success">+</a>
     </div>
 
 </div>
