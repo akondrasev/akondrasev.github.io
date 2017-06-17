@@ -1,5 +1,6 @@
 .letter input[type='checkbox'] {
-    margin-top: 5px;
+    position: relative;
+    top: 2px;
 }
 
 .letter {

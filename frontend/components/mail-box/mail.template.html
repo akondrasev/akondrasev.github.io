@@ -1,6 +1,6 @@
 <div class="mail-box">
     <div class="box-menu">
-        <a ng-click="$ctrl.deleteLetters()"><i class="glyphicon glyphicon-trash"></i></a>
+        <button class="btn btn-default {{$ctrl.selected.length ? '' : 'disabled'}}" ng-click="$ctrl.deleteLetters()"><i class="glyphicon glyphicon-trash"></i></button>
     </div>
 
     <letter ng-repeat="letter in $ctrl.letters" letter="letter" select="$ctrl.selectLetter(letter);"></letter>
