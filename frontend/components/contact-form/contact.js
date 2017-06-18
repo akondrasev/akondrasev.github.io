@@ -10,7 +10,7 @@ module.config(($stateProvider) => {
     $stateProvider.state("contact", {
         url: "/contact/:userId",
         resolve: {
-            contacts: function (userService, $stateParams) {
+            contact: function (userService, $stateParams) {
                 "ngInject";
                 let userId = $stateParams.userId;
 
@@ -23,7 +23,7 @@ module.config(($stateProvider) => {
     $stateProvider.state("new-contact", {
         url: "/contact/new-contact",
         resolve: {
-            contacts: function (userService) {
+            contact: function (userService) {
                 "ngInject";
 
                 return userService.getDraftUser();

@@ -22,7 +22,7 @@ const UserService = function ($http) {
     };
 
     this.editUser = (data) => {
-        $http.patch(`${usersUrl}/${data._id}`, data);
+        return $http.patch(`${usersUrl}/${data._id}`, data);
     };
 
     this.getUsers = () => {
@@ -44,7 +44,7 @@ const UserService = function ($http) {
     };
 
     this.deleteUser = (id) => {
-        return $http.delete(usersUrl, id);
+        return $http.delete(`${usersUrl}/${id}`);
     };
 };
 

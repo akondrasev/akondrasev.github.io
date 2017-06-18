@@ -2,10 +2,18 @@
     <div class="container">
         <h3>Contacts</h3>
 
+        <button ui-sref="new-contact" class="btn btn-submit"><i class="glyphicon glyphicon-plus"></i></button>
+
         <div ng-if="$ctrl.contacts.length === 0">
             <p>You do not have any contacts yet</p>
         </div>
 
-        <button ui-sref="new-contact" class="btn btn-success">Add contact</button>
+
+
+        <div ng-repeat="contact in $ctrl.contacts" class="contact-short">
+            <span>{{contact.fullName}} - {{contact.email}}</span>
+            <button class="btn btn-default" ui-sref="contact({userId: contact._id})"><i class="glyphicon glyphicon-book"></i></button>
+            <button class="btn btn-default" ng-click="$ctrl.deleteContact(contact._id)"><i class="glyphicon glyphicon-trash"></i></button>
+        </div>
     </div>
 </div>
