@@ -9,7 +9,8 @@ angular.module('app', [
     uiRouter,
     Components,
     Services,
-    Interceptors
+    Interceptors,
+    'autoCompleteModule'
 ]).config(($locationProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions

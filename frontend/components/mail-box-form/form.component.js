@@ -10,6 +10,18 @@ const mailBoxComponent = {
     controller: function ($state, mailService, userService) {
         "ngInject";
 
+        this.autocompleteOptions = {
+            data: (value) => {
+                value = value.toLowerCase();
+
+                return this.contacts.map((contact) => {
+                    return contact.email;
+                }).filter((email) => {
+                    return email.toLowerCase().startsWith(value);
+                });
+            },
+        };
+
         this.$onInit = () => {
             $('#new-message-modal').modal();
             $('#new-message-modal').on("hidden.bs.modal", () => {
