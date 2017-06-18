@@ -27,7 +27,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         publicPath: '',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'gh-pages')
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -36,11 +36,11 @@ module.exports = {
             hash: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     mangle: {
-        //         except: ['$', 'jQuery', 'angular']
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: ['$', 'jQuery', 'angular']
+            }
+        }),
 
         new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"}),
         new webpack.ProvidePlugin({
