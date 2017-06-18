@@ -31,10 +31,18 @@ module.exports = function (config) {
             devtool: 'inline-source-map',
             module: {
                 rules: [
-                    { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel-loader' },
+                    { test: /\.js$/, exclude: [/frontend\/lib/, /node_modules/], loaders: ['ng-annotate-loader', 'babel-loader'] },
                     { test: /\.html$/, loader: 'raw-loader' },
-                    { test: /\.(scss|sass)$/, loaders: ['style-loader','css-loader', 'sass-loader'] },
-                    { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+                    { test: /\.(scss|sass)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+                    { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+                    { test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader'] },
+                    {
+                        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }
                 ]
             }
         },

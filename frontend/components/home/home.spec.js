@@ -1,9 +1,10 @@
 import HomeModule from './home'
+import Services from '../../services/services';
 
 describe('Home', () => {
     let $rootScope, $state, $location, $componentController, $compile;
 
-    beforeEach(window.module(HomeModule));
+    beforeEach(window.module(HomeModule, Services));
 
     beforeEach(inject(($injector) => {
         $rootScope = $injector.get('$rootScope');
