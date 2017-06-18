@@ -10,7 +10,8 @@ function controller($stateParams) {
 const homeComponent = {
     bindings: {
         mailBoxes: "<",
-        letters: "<"
+        letters: "<",
+        contacts: "<"
     },
     template,
     controller

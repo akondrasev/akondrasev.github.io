@@ -23,6 +23,10 @@ homeModule.config(($stateProvider, $urlRouterProvider) => {
                 letters: function (mailService) {
                     "ngInject";
                     return mailService.getLetters();
+                },
+                contacts: function (userService) {
+                    "ngInject";
+                    return userService.getUsers();
                 }
             }
         });
