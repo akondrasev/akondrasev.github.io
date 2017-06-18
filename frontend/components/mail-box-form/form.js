@@ -7,8 +7,14 @@ formModule.config(($stateProvider) => {
     "ngInject";
 
     $stateProvider.state('home.new-message', {
-        url: '/new-message',
-        component: 'mailBoxForm'
+        url: 'letter/new-letter',
+        component: 'mailBoxForm',
+        resolve: {
+            boxId: function (mailService) {
+                "ngInject";
+                return mailService.getMailBoxes().then((boxes) => boxes[0]._id)
+            }
+        }
     });
 });
 

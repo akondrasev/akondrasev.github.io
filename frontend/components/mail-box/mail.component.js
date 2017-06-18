@@ -9,16 +9,6 @@ function controller(mailService) {
 
     this.$onInit = () => {
         this.letters = filterLettersByBoxId(this.boxId, this.letters);
-
-        if (this.boxId) mailService.createLetter({
-            mailbox: this.boxId,
-            to: "test@mail.ru",
-            subject: "test letter",
-            title: "title",
-            body: "sddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-        }).then(mailService.getLetters).then((response) => {
-            this.letters = response;
-        });
     };
 
     this.selectLetter = (letter) => {

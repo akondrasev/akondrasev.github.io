@@ -2,8 +2,12 @@ import template from './form.template.html';
 import './form.css';
 
 const mailBoxComponent = {
+    bindings: {
+        boxId: "@",
+        updateLetters: "&"
+    },
     template,
-    controller: function ($state) {
+    controller: function ($state, mailService) {
         "ngInject";
 
         this.$onInit = () => {
@@ -12,6 +16,18 @@ const mailBoxComponent = {
                 $state.go("home");
             });
         };
+
+        this.send = (to, subject, body) => {
+            mailService.createLetter({
+                mailbox: this.boxId,
+                to: to,
+                subject: subject,
+                title: "[TITLE]",
+                body: body
+            }).then(() => {
+                $('#new-message-modal').modal('hide');
+            });
+        }
     }
 };
 
