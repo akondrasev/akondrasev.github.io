@@ -1,11 +1,20 @@
 import template from './mail.template.html';
 import './mail.css';
 
-function controller(mailService) {
+function controller(mailService, $interval) {
     "ngInject";
 
     this.test = "Value is set";
     this.selected = [];
+
+    $interval(()=> {
+        this.refreshList();
+    }, 15000);
+
+    this.filter = (letter) => {
+        console.log(letter.subject, this.filterSubject);
+        return !this.filterSubject || (letter.subject.toLowerCase().indexOf(this.filterSubject.toLowerCase()) > -1);
+    };
 
     this.refreshList = () => {
         mailService.getLetters().then((response) => {

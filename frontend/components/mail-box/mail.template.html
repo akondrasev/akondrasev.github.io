@@ -2,8 +2,8 @@
     <div class="box-menu">
         <button class="btn btn-default {{$ctrl.selected.length ? '' : 'disabled'}}" ng-click="$ctrl.deleteLetters()"><i class="glyphicon glyphicon-trash"></i></button>
         <button class="btn btn-default" ng-click="$ctrl.refreshList()"><i class="glyphicon glyphicon-refresh"></i></button>
-
+        <input ng-model="$ctrl.filterSubject" class="form-control" placeholder="Search subject">
     </div>
 
-    <letter ng-repeat="letter in $ctrl.letters" letter="letter" select="$ctrl.selectLetter(letter);"></letter>
+    <letter ng-repeat="letter in $ctrl.letters | filter:$ctrl.filter" letter="letter" select="$ctrl.selectLetter(letter);"></letter>
 </div>
