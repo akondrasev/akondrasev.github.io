@@ -7,6 +7,7 @@ import MailBoxForm from './mail-box-form/form';
 import Login from './login/login';
 import FullLetter from './letter-full/letter';
 import Contacts from './contacts/contacts';
+import Contact from './contact-form/contact';
 
 let componentModule = angular.module('app.components', [
     Home,
@@ -16,7 +17,8 @@ let componentModule = angular.module('app.components', [
     MailBoxForm,
     Login,
     FullLetter,
-    Contacts
+    Contacts,
+    Contact
 ]).name;
 
 export default componentModule;

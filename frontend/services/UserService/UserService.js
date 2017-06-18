@@ -6,8 +6,31 @@ const UserService = function ($http) {
 
     const usersUrl = `${constants.baseApiUrl}/users`;
 
+    /**
+     * fill all field here with default values
+     * @returns {{}}
+     */
+    this.getDraftUser = () => {
+        return {
+            fullName: "",
+            email: "",
+            avatarUrl: "",
+            birthdate: new Date(),
+            gender: "M",
+            address: ""
+        }
+    };
+
+    this.editUser = (data) => {
+        $http.patch(`${usersUrl}/${data._id}`, data);
+    };
+
     this.getUsers = () => {
         return $http.get(usersUrl);
+    };
+
+    this.getUser = (id) => {
+        return $http.get(`${usersUrl}/${id}`);
     };
 
     this.createUser = (data) => {

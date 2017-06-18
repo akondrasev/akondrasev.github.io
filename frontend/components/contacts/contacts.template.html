@@ -1,3 +1,11 @@
-<div>
-    contacts:
+<div class="contacts">
+    <div class="container">
+        <h3>Contacts</h3>
+
+        <div ng-if="$ctrl.contacts.length === 0">
+            <p>You do not have any contacts yet</p>
+        </div>
+
+        <button ui-sref="new-contact" class="btn btn-success">Add contact</button>
+    </div>
 </div>
