@@ -13,6 +13,10 @@ formModule.config(($stateProvider) => {
             boxId: function (mailService) {
                 "ngInject";
                 return mailService.getMailBoxes().then((boxes) => boxes[0]._id)
+            },
+            contacts: function (userService) {
+                "ngInject";
+                return userService.getUsers();
             }
         }
     });

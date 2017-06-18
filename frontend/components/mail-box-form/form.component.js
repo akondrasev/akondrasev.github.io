@@ -4,10 +4,10 @@ import './form.css';
 const mailBoxComponent = {
     bindings: {
         boxId: "@",
-        updateLetters: "&"
+        contacts: "<"
     },
     template,
-    controller: function ($state, mailService) {
+    controller: function ($state, mailService, userService) {
         "ngInject";
 
         this.$onInit = () => {
@@ -18,6 +18,17 @@ const mailBoxComponent = {
         };
 
         this.send = (to, subject, body) => {
+            let contact = this.contacts.find((contact) => contact.email === to);
+
+            if(!contact) {
+                userService.getDraftUser().then((draft) => {
+                    draft.email = to;
+                    return draft;
+                }).then((draft) => {
+                    userService.createUser(draft);
+                });
+            }
+
             mailService.createLetter({
                 mailbox: this.boxId,
                 to: to,

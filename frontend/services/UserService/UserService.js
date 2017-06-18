@@ -1,7 +1,7 @@
 import angular from 'angular';
 import constants from '../../lib/constants';
 
-const UserService = function ($http) {
+const UserService = function ($q, $http) {
     "ngInject";
 
     const usersUrl = `${constants.baseApiUrl}/users`;
@@ -11,14 +11,20 @@ const UserService = function ($http) {
      * @returns {{}}
      */
     this.getDraftUser = () => {
-        return {
-            fullName: "",
-            email: "",
-            avatarUrl: "",
-            birthdate: new Date(),
-            gender: "M",
-            address: ""
-        }
+        let deferred = $q.defer();
+
+        setTimeout(() => {
+            deferred.resolve({
+                fullName: "DRAFT",
+                email: "",
+                avatarUrl: "",
+                birthdate: new Date(),
+                gender: "M",
+                address: ""
+            });
+        }, 500);
+
+        return deferred.promise;
     };
 
     this.editUser = (data) => {
