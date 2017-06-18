@@ -12,7 +12,6 @@ function controller(mailService, $interval) {
     }, 15000);
 
     this.filter = (letter) => {
-        console.log(letter.subject, this.filterSubject);
         return !this.filterSubject || (letter.subject.toLowerCase().indexOf(this.filterSubject.toLowerCase()) > -1);
     };
 
