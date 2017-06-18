@@ -1,5 +1,6 @@
-<div class="letter row" ng-click="$ctrl.select($ctrl.letter); $ctrl.selected = !$ctrl.selected;">
+<div class="letter row">
     <input class="col-sm-1" ng-model="$ctrl.selected" ng-change="$ctrl.select($ctrl.letter);" type="checkbox"/>
     <span class="col-sm-3">{{$ctrl.letter.subject}}</span>
     <div class="col-sm-8 text-muted text-nowrap body-text">{{$ctrl.letter.body}}</div>
+    <a ui-sref="home.letter({letterId: $ctrl.letter._id})">view</a>
 </div>

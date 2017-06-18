@@ -11,6 +11,10 @@ const MailService = function ($http, $q) {
         return $http.get(lettersUrl);
     };
 
+    this.getLetter = (id) => {
+        return $http.get(`${lettersUrl}/${id}`);
+    };
+
     this.createLetter = (data) => {
         return $http.post(lettersUrl, data);
     };
@@ -21,7 +25,7 @@ const MailService = function ($http, $q) {
         });
     };
 
-    this.getMailBoxes = (title) => {
+    this.getMailBoxes = () => {
         return $http.get(mailBoxUrl);
     };
 
