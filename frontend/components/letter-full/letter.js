@@ -8,7 +8,7 @@ const module = angular.module('', [
 
 module.component('fullLetter', component);
 
-module.config(($stateProvider, $urlRouterProvider) => {
+module.config(($stateProvider) => {
     "ngInject";
 
     $stateProvider
