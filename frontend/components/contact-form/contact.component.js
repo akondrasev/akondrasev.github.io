@@ -10,6 +10,8 @@ const component = {
         "ngInject";
 
         this.save = () => {
+            this.errors = null;
+
             let promise;
             if (this.isDraft) {
                 promise = userService.createUser(this.contact);
@@ -19,7 +21,9 @@ const component = {
 
             promise.then(() => {
                 $state.go("contacts");
-            })
+            }).catch((errorsObject) => {
+                this.errors = errorsObject;
+            });
         }
     }
 };

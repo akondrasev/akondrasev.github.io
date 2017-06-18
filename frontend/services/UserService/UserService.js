@@ -40,11 +40,11 @@ const UserService = function ($http) {
         // Date birthdate -- дата рождения
         // String gender -- пол: "M" или "F"
         // String address -- адрес
-        $http.post(usersUrl, data);
+        return $http.post(usersUrl, data);
     };
 
     this.deleteUser = (id) => {
-        $http.delete(usersUrl, id);
+        return $http.delete(usersUrl, id);
     };
 };
 
