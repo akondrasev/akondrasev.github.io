@@ -27,7 +27,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         publicPath: '',
-        path: path.resolve(__dirname, 'gh-pages')
+        path: path.resolve(__dirname, 'docs')
     },
     plugins: [
         new HtmlWebpackPlugin({
