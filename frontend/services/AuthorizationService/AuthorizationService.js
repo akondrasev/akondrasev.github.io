@@ -1,5 +1,26 @@
+import angular from 'angular';
+import constants from '../../lib/constants';
+
 const AuthorizationService = function ($http) {
-    this.isAuthorized = () => true;
+    "ngInject";
+
+    let _user = null;
+
+    this.isAuthorized = () => {
+        return _user !== null;
+    };
+
+    this.login = (user) => {
+        _user = user;
+    };
+
+    this.logout = () => {
+        _user = null;
+    };
 };
 
-export default AuthorizationService;
+const module = angular
+    .module("authenticationService", [])
+    .service('authenticationService', AuthorizationService);
+
+export default module.name;
