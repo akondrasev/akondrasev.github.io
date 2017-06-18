@@ -21,24 +21,12 @@ module.config(($stateProvider) => {
 module.run(($rootScope, authenticationService, $state, $q, $transitions) => {
     "ngInject";
 
-    // $rootScope.$on('$stateChangeStart', (event, toState) => {
-    //     debugger;
-    //     if (toState !== 'login' && !authenticationService.isAuthorized()) {
-    //         event.preventDefault();
-    //         $state.go('login');
-    //     }
-    // });
-
-    // $transitions.onEnter({
-    //     to: 'home.**'
-    // }, function ($state$, $transition$) {
-    //     "ngInject";
-    //     debugger;
-    //     if (!authenticationService.isAuthorized()) {
-    //         $state.go('login');
-    //         return $q.reject();
-    //     }
-    // });
+    $rootScope.$on('$locationChangeStart', (event, toState) => {
+        if (toState !== 'login' && !authenticationService.isAuthorized()) {
+            event.preventDefault();
+            $state.go('login');
+        }
+    });
 });
 
 export default module.name;

@@ -3,12 +3,17 @@ import './login.css';
 
 const component = {
     template,
-    controller: function (authenticationService) {
+    controller: function (authenticationService, $state) {
         "ngInject";
 
-        this.login = () => {
+        this.login = (mail, password) => {
             authenticationService.login({
-                username: this.username
+                mail: mail,
+                password: password
+            }).then(() => {
+                $state.go("home", {
+                    boxId: null
+                });
             });
         };
     }

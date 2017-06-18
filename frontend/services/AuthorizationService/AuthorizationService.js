@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-const AuthorizationService = function ($http) {
+const AuthorizationService = function ($http, $q) {
     "ngInject";
 
     let _user = null;
@@ -10,11 +10,22 @@ const AuthorizationService = function ($http) {
     };
 
     this.login = (user) => {
-        _user = user;
+        let deferred = $q.defer();
+        setTimeout(()=> {
+            _user = user;
+            deferred.resolve();
+        }, 1000);
+        return deferred.promise;
     };
 
     this.logout = () => {
-        _user = null;
+        let deferred = $q.defer();
+        setTimeout(()=> {
+            _user = null;
+            deferred.resolve();
+        }, 1000);
+
+        return deferred.promise;
     };
 };
 
