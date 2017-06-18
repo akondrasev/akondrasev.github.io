@@ -8,7 +8,7 @@ const component = {
 
         this.login = (mail, password) => {
             authenticationService.login({
-                mail: mail,
+                email: mail,
                 password: password
             }).then(() => {
                 $state.go("home", {

@@ -6,6 +6,8 @@ const navbar = {
     controller: function (authenticationService, $state) {
         "ngInject";
 
+        this.user = authenticationService.getCurrentUser();
+
         this.logout = () => {
             authenticationService.logout().then(() => {
                 $state.go("login");
