@@ -1,5 +1,4 @@
 import angular from 'angular';
-import constants from '../../lib/constants';
 
 const AuthorizationService = function ($http) {
     "ngInject";

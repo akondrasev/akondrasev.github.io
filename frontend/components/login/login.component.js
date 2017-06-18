@@ -7,7 +7,9 @@ const component = {
         "ngInject";
 
         this.login = () => {
-
+            authenticationService.login({
+                username: this.username
+            });
         };
     }
 };
