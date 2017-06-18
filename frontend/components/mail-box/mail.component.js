@@ -7,6 +7,12 @@ function controller(mailService) {
     this.test = "Value is set";
     this.selected = [];
 
+    this.refreshList = () => {
+        mailService.getLetters().then((response) => {
+            this.letters = filterLettersByBoxId(this.boxId, response);
+        });
+    };
+
     this.$onInit = () => {
         this.letters = filterLettersByBoxId(this.boxId, this.letters);
     };
